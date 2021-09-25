@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 style="text-align:center;">Portfolio</h1>
+    <h4 style="text-align:center;">Work Experience</h4>
+    {% for job in jobs %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ job.company }}</a>
+              <small class="text-muted">{{ job.type }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ job.title }}</a></h2>
+            <p class="article-content">{{ job.years }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    <h4 style="text-align:center;">Military Experience</h4>
+    {% for mil in military %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ mil.rank }}</a>
+              <small class="text-muted">{{ mil.command }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ mil.title }}</a></h2>
+            <p class="article-content">{{ mil.years }}</p>
+          </div>
+        </article>
+    {% endfor %}
+    </div>
+    <div class="col-md-4">
+      <div class="content-section">
+        <h3>Education</h3>
+        <p class='text-muted'>Eudcation and Certifications</p>
+        {% for degree in degrees %}
+        <article class="media content-section">
+          <div class="media-body">
+            <h5 class=article-title style="text-align:center;">{{ degree.name }}</h5>
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ degree.ref }}" target="_blank">{{ degree.school }}</a>
+              <small class="text-muted">Graduated {{ degree.year }}</small>
+            </div>
+            <p class="article-content">{{ degree.focus }}</p>
+          </div>
+        </article>
+        {% endfor %}
+        {% for cert in certifications %}
+        <article class="media content-section">
+          <div class="media-body">
+            <h5 class=article-title style="text-align:center;">{{ cert.name }}</h5>
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ cert.organization }}</a>
+              <small class="text-muted">{{ cert.status }}</small>
+            </div>
+            <p class="article-content">{{ cert.focus }}</p>
+          </div>
+        </article>
+        {% endfor %}
+        </p>
+      </div>
+{% endblock content %}
